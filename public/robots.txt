@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /account
+Disallow: /checkout
+Disallow: /auth
+Disallow: /orders
+Disallow: /wishlist
+
+Sitemap: https://agriforge.com/sitemap.xml

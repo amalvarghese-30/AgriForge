@@ -1,0 +1,176 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Bebas Neue", "Poppins", sans-serif;
+  --font-heading: "Poppins", sans-serif;
+  --font-sans: "Inter", sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-olive: var(--olive);
+  --color-beige: var(--beige);
+  --color-steel: var(--steel);
+  --color-ink: var(--ink);
+
+  --shadow-elegant: 0 30px 60px -20px color-mix(in oklab, var(--primary) 35%, transparent);
+  --shadow-card: 0 12px 32px -12px color-mix(in oklab, var(--ink) 40%, transparent);
+  --shadow-glow: 0 0 60px color-mix(in oklab, var(--accent) 40%, transparent);
+
+  --gradient-hero: linear-gradient(135deg, color-mix(in oklab, var(--ink) 95%, transparent) 0%, color-mix(in oklab, var(--primary) 70%, var(--ink)) 100%);
+  --gradient-overlay: linear-gradient(180deg, transparent 0%, color-mix(in oklab, var(--ink) 85%, transparent) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--accent) 0%, color-mix(in oklab, var(--accent) 70%, #ff3d00) 100%);
+  --gradient-card: linear-gradient(160deg, color-mix(in oklab, var(--primary) 8%, var(--background)) 0%, var(--background) 100%);
+
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-base: all 0.4s var(--ease-smooth);
+}
+
+:root {
+  --radius: 0.5rem;
+  /* Light Beige */
+  --background: oklch(0.965 0.015 85);
+  --foreground: oklch(0.18 0.02 150);
+  --card: oklch(0.99 0.005 85);
+  --card-foreground: oklch(0.18 0.02 150);
+  --popover: oklch(0.99 0.005 85);
+  --popover-foreground: oklch(0.18 0.02 150);
+  /* Deep Forest Green */
+  --primary: oklch(0.34 0.06 155);
+  --primary-foreground: oklch(0.97 0.015 85);
+  /* Dark Olive */
+  --olive: oklch(0.45 0.08 115);
+  /* Beige */
+  --beige: oklch(0.93 0.025 85);
+  /* Metallic Gray */
+  --steel: oklch(0.55 0.01 250);
+  /* Matte Black */
+  --ink: oklch(0.16 0.005 250);
+
+  --secondary: oklch(0.93 0.025 85);
+  --secondary-foreground: oklch(0.22 0.02 150);
+  --muted: oklch(0.92 0.015 90);
+  --muted-foreground: oklch(0.42 0.015 150);
+  /* Accent Orange */
+  --accent: oklch(0.68 0.18 50);
+  --accent-foreground: oklch(0.99 0.005 85);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.86 0.02 90);
+  --input: oklch(0.88 0.02 90);
+  --ring: oklch(0.34 0.06 155);
+}
+
+.dark {
+  --background: oklch(0.16 0.005 250);
+  --foreground: oklch(0.96 0.015 85);
+  --card: oklch(0.21 0.015 200);
+  --card-foreground: oklch(0.96 0.015 85);
+  --popover: oklch(0.21 0.015 200);
+  --popover-foreground: oklch(0.96 0.015 85);
+  --primary: oklch(0.55 0.1 150);
+  --primary-foreground: oklch(0.12 0.005 250);
+  --olive: oklch(0.55 0.1 115);
+  --beige: oklch(0.28 0.015 90);
+  --steel: oklch(0.65 0.01 250);
+  --ink: oklch(0.08 0.005 250);
+  --secondary: oklch(0.24 0.015 200);
+  --secondary-foreground: oklch(0.96 0.015 85);
+  --muted: oklch(0.24 0.015 200);
+  --muted-foreground: oklch(0.68 0.015 90);
+  --accent: oklch(0.7 0.18 50);
+  --accent-foreground: oklch(0.12 0.005 250);
+  --destructive: oklch(0.65 0.2 27);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.55 0.1 150);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .container-px { @apply px-4 sm:px-6 lg:px-10; }
+  .grain {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+    background-size: 3px 3px;
+  }
+  .glass {
+    background: color-mix(in oklab, var(--background) 60%, transparent);
+    backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
+  }
+  .glass-dark {
+    background: color-mix(in oklab, var(--ink) 55%, transparent);
+    backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid color-mix(in oklab, #fff 10%, transparent);
+  }
+  .hairline {
+    background-image: linear-gradient(90deg, transparent, color-mix(in oklab, var(--foreground) 25%, transparent), transparent);
+    height: 1px;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 30s linear infinite; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float { animation: float 4s ease-in-out infinite; }
+
+.mask-fade {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+}
